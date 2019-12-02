@@ -1,2 +1,3 @@
 # dotfiles
-Dotfiles for https://github.com/MikeMcQuaid/strap
+
+Dotfiles for https://github.com/MikeMcQuaid/strap.
