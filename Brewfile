@@ -13,6 +13,7 @@ cask "insomnia"
 
 # macOS App Store
 mas "DaisyDisk", id: 411643860
+mas "Mactracker", id: 430255202
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Save to Pocket", id: 1477385213
