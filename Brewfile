@@ -7,5 +7,6 @@ brew "mas"
 
 cask "coconutbattery"
 cask "firefox"
+cask "lastpass"
 
 mas "DaisyDisk", id: 411643860
