@@ -6,5 +6,6 @@ brew "git"
 brew "mas"
 
 cask "coconutbattery"
+cask "firefox"
 
 mas "DaisyDisk", id: 411643860
