@@ -26,15 +26,18 @@ Once your system dependencies are installed, you should manage them only via the
 - `brew update`
 - `brew outdated`
 - `brew update`
+- `brew uninstall`
 
 For any dependencies installed with Homebre Casks use
 
 - `brew cask list`
 - `brew cask outdated`
 - `brew cask upgrade`
+- `brew cask uninstall`
 
 For any dependencies installed with mas-cli use
 
 - `mas list`
 - `mas outdated`
 - `mas upgrade`
+- `sudo mas uninstall <identifier>`
