@@ -10,6 +10,7 @@ brew "mas"
 cask "coconutbattery"
 cask "firefox"
 cask "insomnia"
+cask "lyn"
 
 # macOS App Store
 mas "DaisyDisk", id: 411643860
