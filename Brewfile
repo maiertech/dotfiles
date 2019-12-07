@@ -12,6 +12,7 @@ cask "finereader"
 cask "firefox"
 cask "insomnia"
 cask "lyn"
+cask "tunnelblick"
 
 # macOS App Store
 mas "DaisyDisk", id: 411643860
