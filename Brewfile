@@ -8,6 +8,7 @@ brew "mas"
 
 # Homebrew Cask
 cask "coconutbattery"
+cask "finereader"
 cask "firefox"
 cask "insomnia"
 cask "lyn"
