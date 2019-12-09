@@ -5,6 +5,7 @@ tap "homebrew/core"
 # Homebrew
 brew "git"
 brew "mas"
+brew "yarn"
 
 # Homebrew Cask
 cask "coconutbattery"
