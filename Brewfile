@@ -5,6 +5,7 @@ tap "homebrew/core"
 # Homebrew
 brew "git"
 brew "mas"
+brew "md5deep"
 brew "nvm"
 brew "yarn"
 
