@@ -14,6 +14,7 @@ cask "google-chrome"
 cask "insomnia"
 cask "lyn"
 cask "tunnelblick"
+cask "zoomus"
 
 # macOS App Store
 mas "DaisyDisk", id: 411643860
