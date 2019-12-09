@@ -5,6 +5,7 @@ tap "homebrew/core"
 # Homebrew
 brew "git"
 brew "mas"
+brew "nvm"
 brew "yarn"
 
 # Homebrew Cask
