@@ -1,0 +1,12 @@
+{
+  "editor.formatOnSave": true,
+  "files.autoSave": "onFocusChange",
+  "telemetry.enableTelemetry": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "eslint.autoFixOnSave": true,
+  "debug.node.autoAttach": "on",
+  "git.autofetch": true,
+  "githubPullRequests.defaultMergeMethod": "rebase",
+  "git-graph.fetchAndPrune": true,
+  "git-graph.fetchAvatars": true
+}

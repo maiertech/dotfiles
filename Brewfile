@@ -16,6 +16,7 @@ cask "firefox"
 cask "google-chrome"
 cask "insomnia"
 cask "lyn"
+cask "visual-studio-code"
 cask "tunnelblick"
 cask "zoomus"
 
