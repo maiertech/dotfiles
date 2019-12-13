@@ -56,4 +56,6 @@
     tool = default-difftool
 [difftool "default-difftool"]
     cmd = code --wait --diff $LOCAL $REMOTE
-	
+[credential]
+	# Use macOS Keychain to store HTTP passwords.
+	helper = osxkeychain	
