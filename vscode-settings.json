@@ -10,5 +10,6 @@
   "githubPullRequests.telemetry.enabled": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "telemetry.enableCrashReporter": false,
-  "telemetry.enableTelemetry": false
+  "telemetry.enableTelemetry": false,
+  "workbench.startupEditor": "newUntitledFile"
 }
