@@ -1,12 +1,14 @@
 {
-  "editor.formatOnSave": true,
-  "files.autoSave": "onFocusChange",
-  "telemetry.enableTelemetry": false,
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "eslint.autoFixOnSave": true,
   "debug.node.autoAttach": "on",
+  "editor.formatOnSave": true,
+  "eslint.autoFixOnSave": true,
+  "files.autoSave": "onFocusChange",
+  "git-graph.fetchAndPrune": true,
+  "git-graph.fetchAvatars": true,
   "git.autofetch": true,
   "githubPullRequests.defaultMergeMethod": "rebase",
-  "git-graph.fetchAndPrune": true,
-  "git-graph.fetchAvatars": true
+  "githubPullRequests.telemetry.enabled": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false
 }
