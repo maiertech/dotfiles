@@ -17,6 +17,7 @@ cask "google-chrome"
 cask "insomnia"
 cask "lyn"
 cask "visual-studio-code"
+cask "tresorit"
 cask "tunnelblick"
 cask "zoomus"
 
