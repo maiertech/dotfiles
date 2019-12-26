@@ -119,7 +119,7 @@ For any dependencies installed with mas-cli use
 
 ### Managing SSH keys with LastPass
 
-You can store all your SSH keys in LastPass as [secure notes](https://helpdesk.lastpass.com/secure-notes/) using note type "SSH keys. The `extract-lastpass-secrets` scripts shows how to retrieve stored keys during Strap automated installation.
+You can store all your SSH keys in LastPass as [secure notes](https://helpdesk.lastpass.com/secure-notes/) using note type "SSH keys". The `extract-lastpass-secrets` scripts shows how to retrieve stored keys during Strap automated installation.
 
 ### Visual Studio Code
 
