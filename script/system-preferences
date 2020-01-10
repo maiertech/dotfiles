@@ -29,6 +29,7 @@ echo "###"
 echo "==> Language & Region"
 echo "###"
 
+# BROKEN on v10.15.2:
 echo "Set 'General → First day of the week' to 'Monday'."
 defaults write -g AppleFirstWeekday -dict gregorian 2
 # Check this setting:
@@ -90,6 +91,7 @@ sudo_askpass /usr/libexec/ApplicationFirewall/socketfilterfw --setblockall on
 ## Check this setting:
 ## /usr/libexec/ApplicationFirewall/socketfilterfw --getstealthmode
 
+# BROKEN on v10.15.2:
 echo "Set 'General → Require password X after sleep or screen saver begins' to 'immediately'."
 defaults write com.apple.screensaver askForPassword -int 1
 # Check this setting:
