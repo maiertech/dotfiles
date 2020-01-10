@@ -5,6 +5,7 @@ cd $(dirname $0)/..
 
 script/extract-lastpass-secrets
 script/install-vscode-extensions
+script/system-preferences
 
 if [ "$SHELL" != "/bin/zsh" ]
 then

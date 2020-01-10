@@ -14,20 +14,20 @@ sudo_askpass() {
 echo "Close System Preferences to prevent UI from overriding the changes done with this script."
 osascript -e 'tell application "System Preferences" to quit'
 
-echo "Configure System Preferences...\n"
+echo "Configure System Preferences..."
 
 echo "###"
-echo "General"
-echo "###\n"
+echo "==> General"
+echo "###"
 
 echo "Set 'Automatically hide and show the menu bar' to 'on'."
 defaults write -g _HIHideMenuBar -int 1
 # Check this setting:
 # defaults read -g _HIHideMenuBar
 
-echo "\n###"
-echo "Language & Region"
-echo "###\n"
+echo "###"
+echo "==> Language & Region"
+echo "###"
 
 echo "Set 'General → First day of the week' to 'Monday'."
 defaults write -g AppleFirstWeekday -dict gregorian 2
@@ -44,9 +44,9 @@ defaults write -g AppleTemperatureUnit -string "Celsius"
 # Check this setting:
 # defaults read -g AppleTemperatureUnit
 
-echo "\n###"
-echo "Network"
-echo "###\n"
+echo "###"
+echo "==> Network"
+echo "###"
 
 echo "Set Cloudflare DNS servers for Wi-Fi."
 networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1 2606:4700:4700::1111 2606:4700:4700::1001
@@ -55,9 +55,9 @@ networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1 2606:4700:4700::1111 2606:4700
 
 # Add DNS servers for other network services as needed, e.g., 'Thunderbolt Ehternet'.
 
-echo "\n###"
-echo "Security & Privacy"
-echo "###\n"
+echo "###"
+echo "==> Security & Privacy"
+echo "###"
 
 echo "Set 'Firewall' to 'on'."
 sudo_askpass /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
@@ -101,9 +101,9 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 # These values do not seem to have an impact on the GUI and vice versa.
 # https://blog.kolide.com/screensaver-security-on-macos-10-13-is-broken-a385726e2ae2
 
-echo "\n###"
-echo "Users & Groups"
-echo "###\n"
+echo "###"
+echo "==> Users & Groups"
+echo "###"
 
 # This throws an error if Chrome is not in the list.
 # echo "Remove Google Chrome from login items."
@@ -111,18 +111,18 @@ echo "###\n"
 # Check this setting:
 # osascript -e 'tell application "System Events" to get the name of every login item'
 
-echo "\n###"
-echo "Finder Preferences"
-echo "###\n"
+echo "###"
+echo "==> Finder Preferences"
+echo "###"
 
 echo "Set 'Advanced → Show all filename extensions'."
 defaults write -g AppleShowAllExtensions -bool true
 # Check this setting:
 # defaults read -g AppleShowAllExtensions
 
-echo "\n###"
-echo "Other Preferences"
-echo "###\n"
+echo "###"
+echo "==> Other Preferences"
+echo "###"
 
 echo "Save to disk (not to iCloud) by default."
 defaults write -g NSDocumentSaveNewDocumentsToCloud -bool false
@@ -139,4 +139,4 @@ defaults write com.apple.dock autohide -bool true
 # Check this setting:
 # defaults read com.apple.dock autohide
 
-echo "\nDone. Note that some of these changes require a logout/restart to take effect."
+echo "Done. Note that some of these changes require a logout/restart to take effect."
