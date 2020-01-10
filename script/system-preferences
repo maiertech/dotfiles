@@ -1,0 +1,142 @@
+#!/bin/bash
+set -e
+
+sudo_askpass() {
+  if [ -n "$SUDO_ASKPASS" ]
+  then
+    # $@ refers to all command-line arguments.
+    sudo --askpass "$@"
+  else
+    sudo "$@"
+  fi
+}
+
+echo "Close System Preferences to prevent UI from overriding the changes done with this script."
+osascript -e 'tell application "System Preferences" to quit'
+
+echo "Configure System Preferences...\n"
+
+echo "###"
+echo "General"
+echo "###\n"
+
+echo "Set 'Automatically hide and show the menu bar' to 'on'."
+defaults write -g _HIHideMenuBar -int 1
+# Check this setting:
+# defaults read -g _HIHideMenuBar
+
+echo "\n###"
+echo "Language & Region"
+echo "###\n"
+
+echo "Set 'General → First day of the week' to 'Monday'."
+defaults write -g AppleFirstWeekday -dict gregorian 2
+# Check this setting:
+# defaults read -g AppleFirstWeekday
+
+echo "Set 'General → Time format' to '24h'."
+defaults write -g AppleICUForce24HourTime -int 1
+# Check this setting:
+# defaults read -g AppleICUForce24HourTime
+
+echo "Set 'General → Temperature' to 'Celsius'."
+defaults write -g AppleTemperatureUnit -string "Celsius"
+# Check this setting:
+# defaults read -g AppleTemperatureUnit
+
+echo "\n###"
+echo "Network"
+echo "###\n"
+
+echo "Set Cloudflare DNS servers for Wi-Fi."
+networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1 2606:4700:4700::1111 2606:4700:4700::1001
+# Check this setting:
+# networksetup -getdnsservers Wi-Fi
+
+# Add DNS servers for other network services as needed, e.g., 'Thunderbolt Ehternet'.
+
+echo "\n###"
+echo "Security & Privacy"
+echo "###\n"
+
+echo "Set 'Firewall' to 'on'."
+sudo_askpass /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
+# Check this setting:
+# /usr/libexec/ApplicationFirewall/socketfilterfw --getglobalstate
+
+echo "Set 'Firewall → Logging' to 'on'."
+sudo_askpass /usr/libexec/ApplicationFirewall/socketfilterfw --setloggingmode on
+# Check this setting:
+# /usr/libexec/ApplicationFirewall/socketfilterfw --getloggingmode
+
+# If you do not want to block all incoming connections comment out this command and uncomment the following firewall settings.
+echo "Set 'Firewall → Options → Block all incoming connections' to 'on'."
+sudo_askpass /usr/libexec/ApplicationFirewall/socketfilterfw --setblockall on
+# Check this setting:
+# /usr/libexec/ApplicationFirewall/socketfilterfw --getblockall
+
+# echo "Set 'Firewall → Options → Automatically allow built-in software to receive incoming connections' to 'off'."
+# sudo_askpass /usr/libexec/ApplicationFirewall/socketfilterfw --setallowsigned off
+## Check this setting:
+## /usr/libexec/ApplicationFirewall/socketfilterfw --getallowsigned
+
+# echo "Set 'Firewall → Options → Automatically allow downloaded signed software to receive incoming connections' to 'off'."
+# sudo_askpass /usr/libexec/ApplicationFirewall/socketfilterfw --setallowsignedapp off
+## Check this setting:
+## /usr/libexec/ApplicationFirewall/socketfilterfw --getallowsigned
+
+# echo "Set 'Firewall → Enable stealth mode' to 'on'."
+# sudo_askpass /usr/libexec/ApplicationFirewall/socketfilterfw --setstealthmode on
+## Check this setting:
+## /usr/libexec/ApplicationFirewall/socketfilterfw --getstealthmode
+
+echo "Set 'General → Require password X after sleep or screen saver begins' to 'immediately'."
+defaults write com.apple.screensaver askForPassword -int 1
+# Check this setting:
+# defaults read com.apple.screensaver askForPassword
+defaults write com.apple.screensaver askForPasswordDelay -int 0
+# Check this setting:
+# defaults read com.apple.screensaver askForPasswordDelay
+
+# These values do not seem to have an impact on the GUI and vice versa.
+# https://blog.kolide.com/screensaver-security-on-macos-10-13-is-broken-a385726e2ae2
+
+echo "\n###"
+echo "Users & Groups"
+echo "###\n"
+
+# This throws an error if Chrome is not in the list.
+# echo "Remove Google Chrome from login items."
+# osascript -e 'tell application "System Events" to delete login item "Chrome"'
+# Check this setting:
+# osascript -e 'tell application "System Events" to get the name of every login item'
+
+echo "\n###"
+echo "Finder Preferences"
+echo "###\n"
+
+echo "Set 'Advanced → Show all filename extensions'."
+defaults write -g AppleShowAllExtensions -bool true
+# Check this setting:
+# defaults read -g AppleShowAllExtensions
+
+echo "\n###"
+echo "Other Preferences"
+echo "###\n"
+
+echo "Save to disk (not to iCloud) by default."
+defaults write -g NSDocumentSaveNewDocumentsToCloud -bool false
+# Check this setting:
+# defaults read -g NSDocumentSaveNewDocumentsToCloud
+
+echo "Automatically quit printer app once the print jobs are complete."
+defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
+# Check this setting:
+# defaults read com.apple.print.PrintingPrefs
+
+echo "Automatically hide and show the Dock."
+defaults write com.apple.dock autohide -bool true
+# Check this setting:
+# defaults read com.apple.dock autohide
+
+echo "\nDone. Note that some of these changes require a logout/restart to take effect."

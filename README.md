@@ -12,43 +12,6 @@ For new MacBooks or after factory reset:
 - Turn off telemetry.
 - Turn off Siri.
 
-### Manual configurations
-
-#### General
-
-| Setting                                 | Value |
-| :-------------------------------------- | :---- |
-| Automatically hide an show the menu bar | on    |
-
-#### Siri
-
-| Setting         | Value |
-| :-------------- | :---- |
-| Enable Ask Siri | off   |
-
-#### Language & Region
-
-| Setting                     | Value        |
-| :-------------------------- | :----------- |
-| General → First day of week | Monday       |
-| General → Time format       | 24-Hour Time |
-| General → Temperature       | Celsius      |
-
-#### Security & Privacy
-
-| Setting                                                          | Value                               |
-| :--------------------------------------------------------------- | :---------------------------------- |
-| General → Require password                                       | immediately                         |
-| General → Set lock message...                                    | Set your lock message               |
-| General → Allow apps downloaded from                             | App store and identified developers |
-| FileVault → Turn on FileVault...                                 | on                                  |
-| Firewall → Firewall Options ... → Block all incoming connections | on                                  |
-| Privacy                                                          | Review all privacy settings         |
-
-#### Sharing
-
-Set computer name.
-
 ### Automated installation with Strap
 
 Go to https://macos-strap.herokuapp.com/ and download a customized `strap.sh`. To download the customized `strap.sh` you need give Strap access to your GitHub account and authorize it as OAuth app. Strap will then customize the download file with your GitHub username and pull your dotfiles from `https://github.com/<username>/dotfiles`.
@@ -58,6 +21,34 @@ For the GitHub authorizaton you need your GitHub password. If you keep it in a p
 ### Rerunning the automated installation
 
 If the automated installation fails or if you you make changes in this `dotfiles` repository, you can run Strap again to install any new dependencies and to copy any new dotfiles. Homebrew will skip anything that has been installed already. However, Strap does not remove obsolete symlinks in `/~`.
+
+### Setting system preferences manually
+
+Most system preferences are set automatically with script `system-preferences`. There are a few settings that cannot be scripted and need to be changed manually:
+
+#### Siri
+
+| Setting         | Value |
+| :-------------- | :---- |
+| Enable Ask Siri | off   |
+
+#### Security & Privacy
+
+| Setting                       | Value                 | Comment                                                       |
+| :---------------------------- | :-------------------- | :------------------------------------------------------------ |
+| General → Require password    | immediately           | Scripted configuration is broken in Cataline.                 |
+| General → Set lock message... | Set your lock message | Lock message is set with Strap using GitHub email.            |
+| Privacy                       |                       | Review privacy settings, especially Analytics & Improvements. |
+
+#### Users & Groups
+
+| Setting | Comment                 |
+| :------ | :---------------------- |
+| Image   | Choose preferred image. |
+
+#### Sharing
+
+Set computer name.
 
 ### Known problems
 
@@ -129,3 +120,12 @@ Visual Studio Code (VSCode) on Mac uses two locations to store settings:
 - `~/.vscode` with extensions installed into the `extensions` folder.
 
 When Strap runs it symlinks `vscode-settings.json` and you can later on commit any changes you make. Then Strap installs all VSCode extensions listed in `vscode-extensions`. You can install additional VSCode extensions, but they are not synchronized back to `vscode-extensions`. If you want to add a new VSCode extension for future Strap installs, add it to `vscode-extensions` and commit the file together with corresponding VSCode settings changes.
+
+### System preferences
+
+Script `system-preferences` automates setting system preferences on a newly installed Macbook. You can set system preferences with `defaults`, which is a command-line interface to a user's defaults. The challenge with `defaults` is that you need to figure out the domain and key for each setting. Usually you manage defaults with the Systems Preferences UI. Each setting in the UI has a corresponding domain and key, but they are not properly documented.
+
+Here are some links to useful documentation of of how to set system preferences:
+
+- https://github.com/drduh/macOS-Security-and-Privacy-Guide
+- https://github.com/mathiasbynens/dotfiles/blob/master/.macos
