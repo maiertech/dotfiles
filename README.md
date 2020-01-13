@@ -123,9 +123,11 @@ When Strap runs it symlinks `vscode-settings.json` and you can later on commit a
 
 ### System preferences
 
-Script `system-preferences` automates setting system preferences on a newly installed Macbook. You can set system preferences with `defaults`, which is a command-line interface to a user's defaults. The challenge with `defaults` is that you need to figure out the domain and key for each setting. Usually you manage defaults with the Systems Preferences UI. Each setting in the UI has a corresponding domain and key, but they are not properly documented.
+Script `system-preferences` automates setting system preferences on a newly installed Macbook. You can set system preferences with `defaults`, which is a command-line interface with which you can change many system preferences. The challenge with `defaults` is that you need to figure out the domain and key for each setting. Usually you manage defaults with the Systems Preferences UI. Each setting in the UI has a corresponding domain and key, but they are not properly documented.
 
 Here are some links to useful documentation of of how to set system preferences:
 
 - https://github.com/drduh/macOS-Security-and-Privacy-Guide
 - https://github.com/mathiasbynens/dotfiles/blob/master/.macos
+- https://pawelgrzybek.com/change-macos-user-preferences-via-command-line/
+- https://www.defaults-write.com/

@@ -11,19 +11,18 @@ sudo_askpass() {
   fi
 }
 
-echo "Close System Preferences to prevent UI from overriding the changes done with this script."
+# Close System Preferences to prevent UI from overriding changes altered with this script.
 osascript -e 'tell application "System Preferences" to quit'
 
-echo "Configure System Preferences..."
+###############################################################################
+# General UI/UX                                                               #
+###############################################################################
 
-echo "###"
-echo "==> General"
-echo "###"
+# Set 'System Preferences → General → Automatically hide and show the menu bar' to 'on'.
+defaults write -g _HIHideMenuBar -bool true
 
-echo "Set 'Automatically hide and show the menu bar' to 'on'."
-defaults write -g _HIHideMenuBar -int 1
-# Check this setting:
-# defaults read -g _HIHideMenuBar
+# Set 'System Preferences → Dock → Automatically hide and show the Dock' to 'on'.
+defaults write com.apple.dock autohide -bool true
 
 echo "###"
 echo "==> Language & Region"
@@ -136,9 +135,14 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 # Check this setting:
 # defaults read com.apple.print.PrintingPrefs
 
-echo "Automatically hide and show the Dock."
-defaults write com.apple.dock autohide -bool true
-# Check this setting:
-# defaults read com.apple.dock autohide
+###############################################################################
+# Reminders                                                                   #
+###############################################################################
+
+# Set 'Preferences → All-Day Reminders → Today Notification' to '6am'.
+defaults write com.apple.remindd todayNotificationFireTime -int 600
+
+# Set 'Preferences → All-Day Reminders → Show all-day reminders as overdue' to 'on'.
+defaults write com.apple.remindd showRemindersAsOverdue --bool true
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."
