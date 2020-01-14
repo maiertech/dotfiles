@@ -19,7 +19,7 @@ cask "insomnia"
 cask "lyn"
 cask "visual-studio-code"
 cask "tresorit"
-cask "tunnelblick"
+cask "viscosity"
 cask "zoomus"
 
 # macOS App Store
