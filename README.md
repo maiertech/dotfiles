@@ -4,13 +4,13 @@ My dotfiles shared between machines. Use [Strap](https://github.com/MikeMcQuaid/
 
 ## How to bootstrap a new MacBook
 
-### Apple onboarding checklist
+### Setup assistant
 
-For new MacBooks or after factory reset:
+On new MacBooks or after a factory reset the first thing you see it the seup assistant:
 
-- Make user account local account and do not allow account recovery via iCloud.
-- Turn off telemetry.
-- Turn off Siri.
+- Do not link your local user account to iCloud and prevent local user account password reset with your Apple ID via iCloud.
+- Turn on FileVault and write down the recovery key.
+- Do not turn on iCloud Keychain.
 
 ### Automated installation with Strap
 
@@ -24,21 +24,20 @@ If the automated installation fails or if you you make changes in this `dotfiles
 
 ### Setting system preferences manually
 
-Most system preferences are set automatically with script `system-preferences`. There are a few settings that cannot be scripted and need to be changed manually:
+Most system preferences that you would normally have to configure manually can be scripted. This is what script `macos` is for. In macOS Catalina there are settings cannot be scripted and need to be configured manually:
 
-#### Siri
+#### Language & Region
 
-| Setting         | Value |
-| :-------------- | :---- |
-| Enable Ask Siri | off   |
+| Setting                         | Value  | Comment                                                             |
+| :------------------------------ | :----- | :------------------------------------------------------------------ |
+| General → First day of the week | Monday | Scripted configuration of this setting is broken in macOS Catalina. |
 
 #### Security & Privacy
 
-| Setting                       | Value                 | Comment                                                       |
-| :---------------------------- | :-------------------- | :------------------------------------------------------------ |
-| General → Require password    | immediately           | Scripted configuration is broken in Cataline.                 |
-| General → Set lock message... | Set your lock message | Lock message is set with Strap using GitHub email.            |
-| Privacy                       |                       | Review privacy settings, especially Analytics & Improvements. |
+| Setting                                                        | Value       | Comment                                                             |
+| :------------------------------------------------------------- | :---------- | :------------------------------------------------------------------ |
+| General → Require password X after sleep or screensaver begins | immediately | Scripted configuration of this setting is broken in macOS Catalina. |
+| Privacy                                                        |             | Review all privacy settings.                                        |
 
 #### Users & Groups
 
@@ -94,12 +93,14 @@ Once your system dependencies are installed, you should manage them only via the
 - `brew update`
 - `brew uninstall`
 
-For any dependencies installed with Homebre Casks use
+For any dependencies installed with Homebrew Casks use
 
 - `brew cask list`
 - `brew cask outdated`
 - `brew cask upgrade`
 - `brew cask uninstall`
+
+Note that many apps installed with `brew casks` update themselves and the actual formula is just a shell to install it. Therefore, `brew cask outdated` will almost never show anything to update.
 
 For any dependencies installed with mas-cli use
 
@@ -108,9 +109,11 @@ For any dependencies installed with mas-cli use
 - `mas upgrade`
 - `sudo mas uninstall <identifier>`
 
+Note that `mas outdated` and `mas upgrade` are broken on macOS Catalina. You can follow [this issue](https://github.com/mas-cli/mas/issues/111) for an update.
+
 ### Managing SSH keys with LastPass
 
-You can store all your SSH keys in LastPass as [secure notes](https://helpdesk.lastpass.com/secure-notes/) using note type "SSH keys". The `extract-lastpass-secrets` scripts shows how to retrieve stored keys during Strap automated installation.
+You can store all your SSH keys in LastPass as [secure notes](https://helpdesk.lastpass.com/secure-notes/) using note type "SSH keys". The `extract-lastpass-secrets` scripts shows how to retrieve stored keys while running Strap.
 
 ### Visual Studio Code
 
@@ -119,15 +122,15 @@ Visual Studio Code (VSCode) on Mac uses two locations to store settings:
 - `~/Library/Application Support/Code` with user settings located at `~/Library/Application Support/Code/User/settings.json`.
 - `~/.vscode` with extensions installed into the `extensions` folder.
 
-When Strap runs it symlinks `vscode-settings.json` and you can later on commit any changes you make. Then Strap installs all VSCode extensions listed in `vscode-extensions`. You can install additional VSCode extensions, but they are not synchronized back to `vscode-extensions`. If you want to add a new VSCode extension for future Strap installs, add it to `vscode-extensions` and commit the file together with corresponding VSCode settings changes.
+When Strap is running, it symlinks `vscode-settings.json` and you can later on commit any configuration changes you make in VSCode. Strap also installs all VSCode extensions listed in `vscode-extensions`. You can install additional VSCode extensions, but they are not synchronized back to `vscode-extensions`. If you want to add a new VSCode extension for future Strap installs, add it to `vscode-extensions` and commit the file together with any corresponding VSCode settings changes in `vscode-settings.json`.
 
-### System preferences
+### Configuring macOS
 
-Script `system-preferences` automates setting system preferences on a newly installed Macbook. You can set system preferences with `defaults`, which is a command-line interface with which you can change many system preferences. The challenge with `defaults` is that you need to figure out the domain and key for each setting. Usually you manage defaults with the Systems Preferences UI. Each setting in the UI has a corresponding domain and key, but they are not properly documented.
+On a new macOS system you normally have to make a number of manual configurations using the System Preferences app. Many of these manual configurations can be scripted. This is what script `macos` is for.
 
-Here are some links to useful documentation of of how to set system preferences:
+macOS comes with the `defaults` command-line utility with which you can change many system preferences. The challenge with `defaults` is that you need to figure out the domain and key arguments for each setting. Unfortunately, these are not documented well. Here are some pointers:
 
-- https://github.com/drduh/macOS-Security-and-Privacy-Guide
-- https://github.com/mathiasbynens/dotfiles/blob/master/.macos
-- https://pawelgrzybek.com/change-macos-user-preferences-via-command-line/
-- https://www.defaults-write.com/
+- A good starting point is [Mathias Bynen's `.macos` configuration file](https://github.com/mathiasbynens/dotfiles/blob/master/.macos).
+- For any security and privacy related confiugrations this [macOS Security and Privacy Guide](https://github.com/drduh/macOS-Security-and-Privacy-Guide) is a great read.
+- The [defaults-write.com website](https://www.defaults-write.com/) contains a collection of command-line configurations.
+- And last, but not least, if above docs do not have what you were looking for, you can try to reverse engineer the domains and keys required for the `defaults` command as described in [this article](https://pawelgrzybek.com/change-macos-user-preferences-via-command-line/).
