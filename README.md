@@ -20,7 +20,7 @@ For the GitHub authorizaton you need your GitHub password. If you keep it in a p
 
 ### Rerunning the automated installation
 
-If the automated installation fails or if you you make changes in this `dotfiles` repository, you can run Strap again to install any new dependencies and to copy any new dotfiles. Homebrew will skip anything that has been installed already. However, Strap does not remove obsolete symlinks in `/~`.
+If the automated installation fails or if you you make changes in this `dotfiles` repository, you can run Strap again to install any new dependencies and to copy any new dotfiles. Homebrew will skip anything that has been installed already. However, Strap does not remove obsolete symlinks in `~/`.
 
 ### Setting system preferences manually
 
