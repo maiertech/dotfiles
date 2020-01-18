@@ -24,6 +24,9 @@ defaults write -g _HIHideMenuBar -bool true
 # Set 'System Preferences → Dock → Automatically hide and show the Dock' to 'on'.
 defaults write com.apple.dock autohide -bool true
 
+# Set 'Menu Bar → Battery → Show Percentag' to 'YES'.
+defaults write com.apple.menuextra.battery ShowPercent -string 'YES'
+
 ###############################################################################
 # Localization                                                                #
 ###############################################################################
