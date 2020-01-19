@@ -85,6 +85,25 @@ networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1 2606:4700:4700::1111 2606:4700
 defaults write -g AppleShowAllExtensions -bool true
 
 ###############################################################################
+# Mail                                                                        #
+###############################################################################
+
+# The Mail app's settings are containerized and require the terminal that executes this script to have full disk access.
+# This is part of macOS's System Integrity Protection (SIP).
+# You need to manually grant full disk access to the terminal:
+# Grant 'System Preferences → Security & Privacy → Privacy → Full Disk Access' to 'Terminal'.
+# Revoke full disk access when done!
+
+# Set 'Preferences → Viewing → Show most recent message at the top' to 'on'.
+defaults write com.apple.mail ConversationViewSortDescending -bool true
+
+# Set 'Preferences → Viewing → Load remote content in messages' to  'off'.
+defaults write com.apple.mail DisableURLLoading -bool true
+
+# Set 'View → Bcc Address Field' to 'on'.
+defaults write com.apple.mail ShowBccHeader -bool true
+
+###############################################################################
 # Reminders                                                                   #
 ###############################################################################
 
