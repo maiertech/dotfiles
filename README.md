@@ -98,7 +98,7 @@ Visual Studio Code (VSCode) on Mac uses two locations to store settings:
 - `~/Library/Application Support/Code` with user settings located at `~/Library/Application Support/Code/User/settings.json`.
 - `~/.vscode` with extensions installed into the `extensions` folder.
 
-When Strap is running, it symlinks `vscode-settings.json` and you can later on commit any configuration changes you make in VSCode. Strap also installs all VSCode extensions listed in `vscode-extensions`. You can install additional VSCode extensions, but they are not synchronized back to `vscode-extensions`. If you want to add a new VSCode extension for future Strap installs, add it to `vscode-extensions` and commit the file together with any corresponding VSCode settings changes in `vscode-settings.json`.
+When Strap is running, it symlinks `vscode-settings.json` and `vscode-keybindings.json` and you can later on commit any configuration changes you make in VSCode. Strap also installs all VSCode extensions listed in `vscode-extensions`. You can install additional VSCode extensions, but they are not synchronized back to `vscode-extensions`. If you want to add a new VSCode extension for future Strap installs, add it to `vscode-extensions` and commit the file together with any corresponding VSCode settings changes in `vscode-settings.json` or `vscode-keybindings.json`.
 
 ### Configuring macOS
 
