@@ -7,7 +7,6 @@ brew "git"
 brew "lastpass-cli"
 brew "mas"
 brew "md5deep"
-brew "nvm"
 brew "yarn"
 
 # Homebrew Cask
