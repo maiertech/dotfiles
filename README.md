@@ -85,31 +85,7 @@ You can think of the `Brewfile` as your `Gemfile` or `package.json` for system d
 
 ### Managing installed dependencies
 
-Once your system dependencies are installed, you should manage them only via the follwoing command-line tools. For any dependencies installed with Homebrew use
-
-- `brew list`
-- `brew update`
-- `brew outdated`
-- `brew update`
-- `brew uninstall`
-
-For any dependencies installed with Homebrew Casks use
-
-- `brew cask list`
-- `brew cask outdated`
-- `brew cask upgrade`
-- `brew cask uninstall`
-
-Note that many apps installed with `brew casks` update themselves and the actual formula is just a shell to install it. Therefore, `brew cask outdated` will almost never show anything to update.
-
-For any dependencies installed with mas-cli use
-
-- `mas list`
-- `mas outdated`
-- `mas upgrade`
-- `sudo mas uninstall <identifier>`
-
-Note that `mas outdated` and `mas upgrade` are broken on macOS Catalina. You can follow [this issue](https://github.com/mas-cli/mas/issues/111) for an update.
+Once your system dependencies are installed, you should manage them only with `brew` and `mas`. Check my [note on `brew` and `mas`](https://coding.maier.dev/notes/devtools/brew-and-mas).
 
 ### Managing SSH keys with LastPass
 
