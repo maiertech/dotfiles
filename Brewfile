@@ -4,6 +4,7 @@ tap "homebrew/core"
 
 # Homebrew
 brew "git"
+brew "github/gh/gh"
 brew "lastpass-cli"
 brew "mas"
 brew "md5deep"
