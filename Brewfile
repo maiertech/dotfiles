@@ -11,6 +11,7 @@ brew "n"
 brew "yarn"
 
 # Homebrew Cask
+cask "arq"
 cask "coconutbattery"
 cask "finereader"
 cask "firefox"
