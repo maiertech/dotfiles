@@ -1,26 +1,32 @@
 # dotfiles
 
-My dotfiles shared between machines. Use [Strap](https://github.com/MikeMcQuaid/strap) to bootstrap a new machine. If you want to create your own dotfiles repo, start with [Mike McQuaid's dotfiles](https://github.com/MikeMcQuaid/dotfiles).
+This repository allows me to install and configure a new Macbook much faster. Use [Strap](https://github.com/MikeMcQuaid/strap) to bootstrap a new machine. If you want to create your own dotfiles repo, start with [Mike McQuaid's dotfiles](https://github.com/MikeMcQuaid/dotfiles).
 
 ## How to bootstrap a new MacBook
 
 ### Setup assistant
 
-On new MacBooks or after a factory reset the first thing you see it the seup assistant:
+On new MacBooks or after a factory reset the first thing you see is the seup assistant:
 
 - Do not link your local user account to iCloud and prevent local user account password reset with your Apple ID via iCloud.
 - Turn on FileVault and write down the recovery key.
-- Do not turn on iCloud Keychain.
+- Do not turn on iCloud keychain.
 
 ### Automated installation with Strap
 
-Go to https://macos-strap.herokuapp.com/ and download a customized `strap.sh`. To download the customized `strap.sh` you need give Strap access to your GitHub account and authorize it as OAuth app. Strap will then customize the download file with your GitHub username and pull your dotfiles from `https://github.com/<username>/dotfiles`.
+Go to https://macos-strap.herokuapp.com/ and download a customized `strap.sh`. To download the customized `strap.sh` you need give Strap access to your GitHub account and authorize it as OAuth app. Strap will then customize the file that you are about to download with your GitHub username and pull your dotfiles from `https://github.com/<username>/dotfiles`.
 
-For the GitHub authorizaton you need your GitHub password. If you keep it in a password manager like [LastPass](https://www.lastpass.com/), your password might be difficult or impossible to type in manually. With Apple's universal clipboard, you can copy your GitHub password from a password manager on another device and paste in you new machine. [This support article](https://support.apple.com/en-us/HT209460) explains how setup universal clipboard.
+For the GitHub authorizaton you need your GitHub password. If you keep it in a password manager like [LastPass](https://www.lastpass.com/), your password might be difficult or impossible to type in manually. With Apple's universal clipboard, you can copy your GitHub password from a password manager on another device and paste in you new machine. [This support article](https://support.apple.com/en-us/HT209460) explains how universal clipboard works.
 
 ### Rerunning the automated installation
 
-If the automated installation fails or if you you make changes in this `dotfiles` repository, you can run Strap again to install any new dependencies and to copy any new dotfiles. Homebrew will skip anything that has been installed already. However, Strap does not remove obsolete symlinks in `~/`.
+If the automated installation fails or if you make changes in your `dotfiles` repository, you can run Strap again to install any new dependencies and to copy any new dotfiles. Homebrew will skip anything that has been installed already. However, Strap does not remove obsolete symlinks in `~/`.
+
+### Environment variables with secrets and other secrets
+
+Since all your dotfiles are public, you cannot store secrets in them. You can create `~/.env` and define environment variables with secrets. File `~/.zshrc` will source this file. `~/.env` has been added to `.gitignore` to prevent accidental commit of secrets.
+
+You can also implement a more sophisticated approach and store your secrets in LastPass and retrieve them during installation and copy them into `~/.env`. This how SSH keys are currently handled.
 
 ### Setting system preferences manually
 
