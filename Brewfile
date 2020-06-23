@@ -20,8 +20,9 @@ cask "google-chrome"
 cask "insomnia"
 cask "lyn"
 cask "mullvadvpn"
-cask "visual-studio-code"
+cask "screenflow"
 cask "tresorit"
+cask "visual-studio-code"
 cask "zoomus"
 
 # macOS App Store
