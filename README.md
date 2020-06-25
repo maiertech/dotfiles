@@ -91,7 +91,7 @@ You can think of the `Brewfile` as your `Gemfile` or `package.json` for system d
 
 ### Managing installed dependencies
 
-Once your system dependencies are installed, you should manage them only with `brew` and `mas`. Check my [note on `brew` and `mas`](https://coding.maier.dev/notes/devtools/brew-and-mas).
+Once your system dependencies are installed, you should manage them only with `brew` and `mas`. Check my [note on `brew` and `mas`](https://coding.maier.dev/notes/dev/brew-and-mas).
 
 ### Managing SSH keys with LastPass
 
