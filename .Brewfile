@@ -14,6 +14,7 @@ brew "yarn"
 # Homebrew Cask
 cask "arq"
 cask "coconutbattery"
+cask "discord"
 cask "finereader"
 cask "firefox"
 cask "google-chrome"
