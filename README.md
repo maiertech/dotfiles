@@ -1,6 +1,11 @@
 # dotfiles
 
-This repository allows me to install and configure a new Macbook much faster. Use [Strap](https://github.com/MikeMcQuaid/strap) to bootstrap a new machine. If you want to create your own dotfiles repo, start with [Mike McQuaid's dotfiles](https://github.com/MikeMcQuaid/dotfiles).
+This repository serves two use cases:
+
+1. It is used by [GitHub Codespaces](https://github.com/features/codespaces) to [personalize every container with my dotfiles](https://docs.github.com/en/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account).
+1. It allows me to install and configure a new Macbook much faster. Use [Strap](https://github.com/MikeMcQuaid/strap) to bootstrap a new machine. If you want to create your own dotfiles repo, start with [Mike McQuaid's dotfiles](https://github.com/MikeMcQuaid/dotfiles).
+
+This README covers the second use case.
 
 ## How to bootstrap a new MacBook
 
@@ -16,7 +21,7 @@ On new MacBooks or after a factory reset the first thing you see is the seup ass
 
 Go to https://macos-strap.herokuapp.com/ and download a customized `strap.sh`. To download the customized `strap.sh` you need give Strap access to your GitHub account and authorize it as OAuth app. Strap will then customize the file that you are about to download with your GitHub username and pull your dotfiles from `https://github.com/<username>/dotfiles`.
 
-For the GitHub authorizaton you need your GitHub password. If you keep it in a password manager like [LastPass](https://www.lastpass.com/), your password might be difficult or impossible to type in manually. With Apple's universal clipboard, you can copy your GitHub password from a password manager on another device and paste in you new machine. [This support article](https://support.apple.com/en-us/HT209460) explains how universal clipboard works.
+For the GitHub authorizaton you need your GitHub password. If you keep it in a password manager like [LastPass](https://www.lastpass.com/), your password might be difficult or impossible to type in manually. With [Apple's universal clipboard](https://support.apple.com/en-us/HT209460), you can copy your GitHub password from a password manager on another device and paste in you new machine.
 
 ### Rerunning the automated installation
 
@@ -30,7 +35,7 @@ You can also implement a more sophisticated approach and store your secrets in L
 
 ### Setting system preferences manually
 
-Most system preferences that you would normally have to configure manually can be scripted. This is what script `macos` is for. In macOS Catalina there are settings cannot be scripted and need to be configured manually:
+Most system preferences that you would normally have to configure manually can be scripted. This is what script `macos` is for. In macOS Catalina there are settings that cannot be scripted and need to be configured manually:
 
 #### Language & Region
 
@@ -55,35 +60,19 @@ Most system preferences that you would normally have to configure manually can b
 
 Set computer name.
 
-### Known problems
-
-#### Visual Studio Code is not signed
-
-As of Visual Studio Code (VSCode) 1.41, when you install VSCode with `brew cask` on macOS Catalina and try to run it, you get this error message:
-
-<img width="532" alt="Error message when starting Visual Studio Code on macOS Catalina" src="https://user-images.githubusercontent.com/1482402/70838000-39e80280-1dd4-11ea-837e-934bd5690ba7.png">
-
-This will fail the subsequent installation of VSCode extensions.
-
-VSCode still needs to be notarized and signed by Microsoft to prevent this warning. Meanwhile you can manually approve running VSCode in macOS Catalina in Security & Privacy settings:
-
-<img width="780" alt="Approving Visual Studio Code in macOS Catalina Security & Privacy settings" src="https://user-images.githubusercontent.com/1482402/70838052-6ac83780-1dd4-11ea-83f7-5b7588075cb9.png">
-
-When doen rerun Strap.
-
-## Documentation
+## How this works under the hood
 
 ### Local GitHub repository
 
-Strap clones this repository to `~/.dotfiles` and symlinks any dotfile located in `~/` to a file in `~/.dotfiles`. If you change any configs, e.g. settings in VSCode, you can diff the changes with Git in `~/.dotfiles` and commit them.
+Strap clones this repository to `~/.dotfiles` and symlinks any dotfile to `~/`. If you change any dotfiles, you can diff the changes with Git in `~/.dotfiles` and commit them.
 
 ### Scripts
 
-All scripts in `script` need to be owner executable. Note that the owner executable flag is part of a GitHub commit and will be set when you clone this repository.
+All scripts in the `script` folder need to be owner executable. Note that the owner executable flag is part of a GitHub commit and will be set when you clone this repository.
 
 ### Brewfile
 
-You can think of the `Brewfile` as your `Gemfile` or `package.json` for system dependencies ([this post](https://thoughtbot.com/blog/brewfile-a-gemfile-but-for-homebrew) came up with this analogy). Strap uses the [`brew bundle`](https://github.com/Homebrew/homebrew-bundle) command under the hood to install dependencies from 3 sources:
+You can think of the `.Brewfile` as your `package.json` for system dependencies ([this post](https://thoughtbot.com/blog/brewfile-a-gemfile-but-for-homebrew) came up with this analogy). Strap uses the [`brew bundle`](https://github.com/Homebrew/homebrew-bundle) command install dependencies from 3 sources:
 
 1. [Homebrew](https://brew.sh/),
 1. [Homebrew Cask](https://github.com/Homebrew/homebrew-cask) and
@@ -91,20 +80,11 @@ You can think of the `Brewfile` as your `Gemfile` or `package.json` for system d
 
 ### Managing installed dependencies
 
-Once your system dependencies are installed, you should manage them only with `brew` and `mas`. Check my [note on `brew` and `mas`](https://coding.maier.dev/notes/dev/brew-and-mas).
+Once your system dependencies are installed, you should manage them only with `brew` and `mas`. Currently `mas` is broken. Check my [note on `brew` and `mas`](https://coding.maier.dev/notes/dev/brew-and-mas).
 
 ### Managing SSH keys with LastPass
 
 You can store all your SSH keys in LastPass as [secure notes](https://helpdesk.lastpass.com/secure-notes/) using note type "SSH keys". The `extract-lastpass-secrets` scripts shows how to retrieve stored keys while running Strap.
-
-### Visual Studio Code
-
-Visual Studio Code (VSCode) on Mac uses two locations to store settings:
-
-- `~/Library/Application Support/Code` with user settings located at `~/Library/Application Support/Code/User/settings.json`.
-- `~/.vscode` with extensions installed into the `extensions` folder.
-
-When Strap is running, it symlinks `vscode-settings.json` and `vscode-keybindings.json` and you can later on commit any configuration changes you make in VSCode. Strap also installs all VSCode extensions listed in `vscode-extensions`. You can install additional VSCode extensions, but they are not synchronized back to `vscode-extensions`. If you want to add a new VSCode extension for future Strap installs, add it to `vscode-extensions` and commit the file together with any corresponding VSCode settings changes in `vscode-settings.json` or `vscode-keybindings.json`.
 
 ### Configuring macOS
 
