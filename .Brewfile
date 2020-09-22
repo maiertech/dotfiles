@@ -8,7 +8,6 @@ brew "github/gh/gh"
 brew "lastpass-cli"
 brew "mas"
 brew "md5deep"
-brew "n"
 brew "yarn"
 
 # Homebrew Cask
