@@ -1,58 +1,36 @@
 #!/bin/sh
-# Install all dotfiles into the home directory
+# Install dotfiles into the home dir.
 
+# Figure out current directory (script).
+# Go one level up and use that directory.
 DOTFILESDIRREL=$(dirname $0)
 cd $DOTFILESDIRREL/..
 DOTFILESDIR=$(pwd -P)
 
-[ $(uname -s) = "Darwin" ] && export MACOS=1 && export UNIX=1
-[ $(uname -s) = "Linux" ] && export LINUX=1 && export UNIX=1
-uname -s | grep -q "_NT-" && export WINDOWS=1
+# Figure out whether we run on macOS or Linux.
+[ $(uname -s) = "Darwin" ] && export MACOS=1
+[ $(uname -s) = "Linux" ] && export LINUX=1
 
-if [ $MACOS ]
-then
-  VSCODE="$HOME/Library/Application Support/Code/User"
-elif [ $LINUX ]
-then
-  VSCODE="$HOME/.config/Code/User"
-elif [ $WINDOWS ]
-then
-  VSCODE="$APPDATA/Code/User"
-fi
+# Create symbolic links for these dotfiles.
+dotfiles=(.Brewfile .gitconfig .ssh .zshrc)
 
-for DOTFILE in *; do
-  HOMEFILE="$HOME/.$DOTFILE"
+for DOTFILE in ${dotfiles[@]}
+do
+  # Target path that will be symlinked.
+  HOMEFILE="$HOME/$DOTFILE"
+  # If dotfile is a dir add trailing slash.
   [ -d $DOTFILE ] && DOTFILE="$DOTFILE/"
+  # Source path within dotfiles repo.
   DIRFILE="$DOTFILESDIR/$DOTFILE"
 
-  echo $DOTFILE | egrep -q '(^script/$|\.txt$|\.md$)' && continue
-
-  echo $DOTFILE | grep -q 'vscode-settings' &&
-       HOMEFILE="$VSCODE/settings.json" &&
-       mkdir -p "$VSCODE"
-
-  echo $DOTFILE | grep -q 'vscode-keybindings' &&
-       HOMEFILE="$VSCODE/keybindings.json"
-
-  echo $DOTFILE | grep -q '\.sh' &&
-       HOMEFILE="$HOME/.$(echo $DOTFILE | sed -e 's/\.sh//')"
-
-  if echo $DOTFILE | grep -q 'github-vscode-settings'
+  # Check if target exists, is a symbolic link and is not a directory.
+  if [ -L "$HOMEFILE" ] && ! [ -d $DOTFILE ]
   then
-    [ -d "$HOME/GitHub/github" ] || continue
-    HOMEFILE="$HOME/GitHub/github/.vscode"
-  fi
-
-  if [ $UNIX ]
-  then
-    if [ -L "$HOMEFILE" ] && ! [ -d $DOTFILE ]
-    then
-      ln -sfv "$DIRFILE" "$HOMEFILE"
-    else
-      rm -rv "$HOMEFILE"
-      ln -sv "$DIRFILE" "$HOMEFILE"
-    fi
+    # Replace symbolic link.
+    ln -sfv "$DIRFILE" "$HOMEFILE"
   else
-    cp -rv "$DIRFILE" "$HOMEFILE"
+    # Replace file or folder with symbolic link.
+    rm -rv "$HOMEFILE"
+    ln -sv "$DIRFILE" "$HOMEFILE"
   fi
 done
