@@ -1,5 +1,6 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-versions"
 tap "homebrew/core"
 
 # Homebrew
@@ -24,6 +25,7 @@ cask "mullvadvpn"
 cask "screenflow"
 cask "tresorit"
 cask "visual-studio-code"
+cask "visual-studio-code-insiders"
 cask "zoomus"
 
 # macOS App Store
