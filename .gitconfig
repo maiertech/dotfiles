@@ -1,11 +1,11 @@
 [user]
-	# Name used in commit messages.
+	# Name used in commits.
 	name = Thilo Maier
-	# Email used in commit essages.
+	# Email used in commits.
 	email = git@maier.asia
 [github]
 	# GitHub username for command-line tools.
-	user = 454de6e	
+	user = maiertech	
 [color]
 	# Colour terminal command output when possible.
 	ui = auto
@@ -19,7 +19,7 @@
 	# Always prune when fetching (and pulling).
 	prune = 1
 [core]
-	# Exclude everything this file. Used for general exclusions.
+	# Exclude this file.
 	excludesfile = ~/.gitignore
 	commitGraph = true
 	editor = code --wait
@@ -27,20 +27,15 @@
  	# Autocorrect mistyped commands.
 	autocorrect = 1
 [alias]
-	## 'New' Commands
-	# Fetch all branches and rebase the current branch against upstream/master.
-	rebase-against-master = !git fetch --all && git rebase $(git upstream)/master
-	# Rebase against origin/master and prompt for what operations should be performed.
-	interactively-rebase-against-origin-master = !git rebase --interactive origin/master
-	# Show the commit log with a prettier, clearer history.
+	# Define new commands.
+
+	## Show the commit log with a prettier, clearer history.
 	pretty-one-line-log = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
 
-	## Shortened 'New' Commands
-	rem = !git rebase-against-master
-	i = !git interactively-rebase-against-origin-master
+	# Shorten new commands.
 	l = !git pretty-one-line-log || true
 
-	## Shortened Existing Commands
+	# Shorten existing commands.
 	p = pull
 	s = status --short --branch
 [filter "lfs"]
@@ -49,10 +44,12 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 [diff]
-	# Use the slower but better patience diff algorithm
+	# Use the slower but better patience diff algorithm.
 	algorithm = patience
 	# Use new diff algorithm to make e.g. function diffs look better.
 	compactionheuristic = true
     tool = default-difftool
 [difftool "default-difftool"]
     cmd = code --wait --diff $LOCAL $REMOTE
+[init]
+	defaultBranch = main
