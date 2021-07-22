@@ -25,7 +25,7 @@ cask "lyn"
 cask "signal"
 cask "tresorit"
 cask "visual-studio-code"
-cask "zoomus"
+cask "zoom"
 
 # macOS App Store
 mas "DaisyDisk", id: 411643860
