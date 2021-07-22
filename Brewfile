@@ -5,7 +5,7 @@ tap "homebrew/cask-versions"
 
 # homebrew/core
 brew "git"
-brew "github/gh/gh"
+brew "gh"
 brew "lastpass-cli"
 brew "mas"
 brew "md5deep"
