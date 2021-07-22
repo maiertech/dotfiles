@@ -146,9 +146,8 @@ is added, too, in order to support installing
 
 ### Managing installed dependencies
 
-Once your system dependencies are installed, you should manage them only with
-`brew` and `mas`. Currently `mas` is broken. Check my
-[note on `brew` and `mas`](https://coding.maier.dev/notes/dev/brew-and-mas).
+Once your system dependencies are installed, you should manage them with
+`brew bundle` and `~/Brewfile`.
 
 ### Managing SSH keys with LastPass
 
