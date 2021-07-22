@@ -84,6 +84,15 @@ networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1 2606:4700:4700::1111 2606:4700
 # Set 'Advanced → Show all filename extensions' to 'on'.
 defaults write -g AppleShowAllExtensions -bool true
 
+# Set 'View → Show Path Bar' to 'on'.
+defaults write com.apple.finder ShowPathbar -bool true
+
+# Display full POSIX path as Finder window title
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+# Keep folders on top when sorting by name
+defaults write com.apple.finder _FXSortFoldersFirst -bool true
+
 ###############################################################################
 # Mail                                                                        #
 ###############################################################################
