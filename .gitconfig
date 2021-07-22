@@ -53,3 +53,5 @@
     cmd = code --wait --diff $LOCAL $REMOTE
 [init]
 	defaultBranch = main
+[credential]
+	helper = osxkeychain

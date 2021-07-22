@@ -27,7 +27,6 @@ cask "mullvadvpn"
 cask "screenflow"
 cask "tresorit"
 cask "visual-studio-code"
-cask "visual-studio-code-insiders"
 cask "zoomus"
 
 # macOS App Store

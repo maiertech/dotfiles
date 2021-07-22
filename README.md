@@ -123,22 +123,26 @@ All scripts in the `script` folder need to be owner executable. Note that the
 owner executable flag is part of a GitHub commit and will be set when you clone
 this repository.
 
-### .Brewfile
+### Brewfile
 
 CLI tools and applications are installed with [Homebrew](https://brew.sh/) or
 directly from the [macOS App Store](http://www.apple.com/mac/app-store).
-`.Brewfile` defines which tool or app is installed from which source.
+`Brewfile` defines which tool or app is installed from which source.
 
-You can think of `.Brewfile` as your `package.json` for system dependencies
+You can think of `Brewfile` as your `package.json` for system dependencies
 ([this post](https://thoughtbot.com/blog/brewfile-a-gemfile-but-for-homebrew)
 came up with this analogy). Strap uses
 [`brew bundle`](https://github.com/Homebrew/homebrew-bundle) to install
-dependencies the following sources:
+dependencies the following taps:
 
-1. [Homebrew](https://brew.sh/),
-1. [Homebrew Cask](https://github.com/Homebrew/homebrew-cask) and
+1. [homebrew-core](https://github.com/Homebrew/homebrew-core),
+1. [homebrew-cask](https://github.com/Homebrew/homebrew-cask) and
 1. [macOS App Store](http://www.apple.com/mac/app-store) (via
    [mas-cli](https://github.com/mas-cli/mas)).
+
+Tap [homebrew-cask-versions](https://github.com/Homebrew/homebrew-cask-versions)
+is added, too, in order to support installing
+[visual-studio-code-insiders](https://github.com/Homebrew/homebrew-cask-versions/blob/master/Casks/visual-studio-code-insiders.rb).
 
 ### Managing installed dependencies
 
