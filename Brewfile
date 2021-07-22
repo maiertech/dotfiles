@@ -33,5 +33,4 @@ mas "Mactracker", id: 430255202
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Todoist", id: 585829637
-mas "Tweetbot", id: 1384080005
 mas "Xcode", id: 497799835
