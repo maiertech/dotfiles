@@ -1,17 +1,19 @@
 tap "homebrew/bundle"
+tap "homebrew/core"
 tap "homebrew/cask"
 tap "homebrew/cask-versions"
-tap "homebrew/core"
 
-# Homebrew
+# homebrew/core
 brew "git"
 brew "github/gh/gh"
 brew "lastpass-cli"
 brew "mas"
 brew "md5deep"
+brew "node"
 brew "yarn"
 
-# Homebrew Cask
+# homebrew/cask
+# homebrew/cask-versions
 cask "arq"
 cask "coconutbattery"
 cask "discord"
