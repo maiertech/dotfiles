@@ -32,7 +32,6 @@ cask "zoom"
 
 # macOS App Store
 mas "DaisyDisk", id: 411643860
-mas "Mactracker", id: 430255202
 mas "NextDNS", id: 1464122853
 mas "Numbers", id: 409203825
 mas "OTP Auth", id: 1471867429
