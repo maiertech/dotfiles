@@ -7,7 +7,6 @@ tap "homebrew/cask-drivers"
 # homebrew/core
 brew "git"
 brew "gh"
-brew "lastpass-cli"
 brew "mas"
 brew "md5deep"
 brew "node"

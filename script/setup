@@ -12,7 +12,7 @@ DOTFILESDIR=$(pwd -P)
 [ $(uname -s) = "Linux" ] && export LINUX=1
 
 # Create symbolic links for these selected dotfiles only.
-dotfiles=(.gitconfig .prettierrc .ssh .zshrc Brewfile)
+dotfiles=(.gitconfig .zshrc Brewfile)
 
 for DOTFILE in ${dotfiles[@]}
 do

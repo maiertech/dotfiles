@@ -3,7 +3,6 @@
 
 cd $(dirname $0)/..
 
-script/extract-lastpass-secrets
 script/macos
 
 if [ "$SHELL" != "/bin/zsh" ]
