@@ -36,7 +36,7 @@ Above choices mean that you take full responsibility for your MacBook.
 
 Go to https://macos-strap.herokuapp.com/ and download a customized `strap.sh`. To download the customized `strap.sh` you need give Strap access to your GitHub account and authorize it as OAuth app. Strap will then customize the file that you are about to download with your GitHub username and pull your dotfiles from `https://github.com/<username>/dotfiles`.
 
-For the GitHub authorizaton you need your GitHub password. If you keep it in a password manager like [LastPass](https://www.lastpass.com/), your password might be difficult or impossible to type in manually. With [Apple's universal clipboard](https://support.apple.com/en-us/HT209460), you can copy your GitHub password from a password manager on another device and paste into you new machine.
+For the GitHub authorizaton you need your GitHub password. If you keep it in a password manager like [LastPass](https://www.lastpass.com/), your password might be difficult or impossible to type in manually. User the web version of your password manager to copy the password or use [Apple's universal clipboard](https://support.apple.com/en-us/HT209460) to copy your GitHub password from a password manager on another Apple device and paste into your new machine.
 
 Follow the instructions on https://macos-strap.herokuapp.com/ to bootstrap your MacBook.
 
