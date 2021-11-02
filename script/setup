@@ -1,4 +1,16 @@
 #!/bin/sh
+
+sudo_askpass() {
+  if [ -n "$SUDO_ASKPASS" ]; then
+    sudo --askpass "$@"
+  else
+    sudo "$@"
+  fi
+}
+
+# Install Rosetta 2 (currently required for focusrite-control in .Brewfile).
+sudo_askpass sudo softwareupdate --install-rosetta
+
 # Install dotfiles into the home dir.
 
 # Figure out current directory (script).

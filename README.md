@@ -102,15 +102,15 @@ settings that cannot be scripted and need to be configured manually:
 
 #### Language & Region
 
-| Setting                         | Value  | Comment                                                             |
-| :------------------------------ | :----- | :------------------------------------------------------------------ |
-| General → First day of the week | Monday | Scripted configuration of this setting is broken in macOS Catalina. |
+| Setting                                       | Value  | Comment                                                             |
+| :-------------------------------------------- | :----- | :------------------------------------------------------------------ |
+| General → Advanced... → First day of the week | Monday | Scripted configuration of this setting is broken in macOS Catalina. |
 
 #### Security & Privacy
 
 | Setting                                                        | Value       | Comment                                                             |
 | :------------------------------------------------------------- | :---------- | :------------------------------------------------------------------ |
-| General → Require password X after sleep or screensaver begins | immediately | Scripted configuration of this setting is broken in macOS Catalina. |
+| General → Require password X after sleep or screensaver begins | immediately | Scripted configuration of this setting is broken in macOS Monterey. |
 | Privacy                                                        |             | Review all privacy settings.                                        |
 
 #### Users & Groups
@@ -157,11 +157,6 @@ dependencies the following taps:
 Tap [homebrew-cask-versions](https://github.com/Homebrew/homebrew-cask-versions)
 is added, too, in order to support installing
 [visual-studio-code-insiders](https://github.com/Homebrew/homebrew-cask-versions/blob/master/Casks/visual-studio-code-insiders.rb).
-
-### Managing installed dependencies
-
-Once your system dependencies are installed, you should manage them with
-`brew bundle` and `~/.Brewfile`.
 
 ### Configuring macOS
 
