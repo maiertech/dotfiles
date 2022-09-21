@@ -18,6 +18,7 @@ brew "yarn"
 # homebrew/cask-versions
 cask "arq"
 cask "camo-studio"
+cask "cleanshot"
 cask "coconutbattery"
 cask "discord"
 cask "firefox"
