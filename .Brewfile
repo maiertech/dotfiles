@@ -17,6 +17,7 @@ brew "yarn"
 # homebrew/cask
 # homebrew/cask-versions
 cask "arq"
+cask "camo-studio"
 cask "coconutbattery"
 cask "discord"
 cask "firefox"
