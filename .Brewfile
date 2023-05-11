@@ -9,7 +9,6 @@ brew "yarn"
 
 cask "arq"
 cask "cleanshot"
-cask "firefox"
 cask "focusrite-control"
 cask "grammarly-desktop"
 cask "lyn"
