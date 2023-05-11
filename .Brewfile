@@ -7,6 +7,7 @@ brew "ocrmypdf"
 brew "tesseract-lang"
 brew "yarn"
 
+cask "arc"
 cask "arq"
 cask "cleanshot"
 cask "focusrite-control"
