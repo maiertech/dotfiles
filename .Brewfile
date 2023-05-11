@@ -8,7 +8,6 @@ brew "tesseract-lang"
 brew "yarn"
 
 cask "arq"
-cask "camo-studio"
 cask "cleanshot"
 cask "firefox"
 cask "focusrite-control"
