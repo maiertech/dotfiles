@@ -4,6 +4,7 @@ brew "mas"
 brew "md5deep"
 brew "node"
 brew "ocrmypdf"
+brew "pnpm"
 brew "tesseract-lang"
 
 cask "cleanshot"
