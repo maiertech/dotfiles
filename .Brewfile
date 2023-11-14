@@ -17,7 +17,6 @@ cask "visual-studio-code"
 cask "zoom"
 
 mas "DaisyDisk", id: 411643860
-mas "NextDNS", id: 1464122853
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Xcode", id: 497799835
