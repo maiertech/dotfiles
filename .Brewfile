@@ -23,4 +23,5 @@ cask "zoom"
 mas "DaisyDisk", id: 411643860
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+mas "Reeder", id: 1529448980
 mas "Xcode", id: 497799835
