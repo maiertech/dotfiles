@@ -5,7 +5,6 @@ brew "md5deep"
 brew "node"
 brew "ocrmypdf"
 brew "tesseract-lang"
-brew "yarn"
 
 cask "cleanshot"
 cask "focusrite-control"
