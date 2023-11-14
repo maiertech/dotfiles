@@ -8,6 +8,7 @@ brew "pnpm"
 brew "tesseract-lang"
 
 cask "cleanshot"
+cask "displaylink"
 cask "firefox"
 cask "focusrite-control"
 cask "lyn"
