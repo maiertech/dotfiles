@@ -1,10 +1,22 @@
+# To test .gitconfig, run `git config -l` from a directory with a git repository.
+# Check if user.email is set correctly.
+
 [user]
 	# Name used in commits.
 	name = Thilo Maier
-	# Email used in commits.
-	email = git@maier.asia
+
+	# Config user.email in local .gitconfig files!
+
 	# Signing key for commits.
 	signingkey = ~/.ssh/id_ed25519.pub
+
+# Default user.email.
+[includeIf "gitdir:~/"]
+  path = ~/.personal.gitconfig
+
+# Work user.email (last one wins).
+[includeIf "gitdir:~/projects/impierce/"]
+  path = ~/projects/impierce/.work.gitconfig
 
 [gpg]
 	format = ssh
