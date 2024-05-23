@@ -1,4 +1,4 @@
-# Opt out from Homebrew analytics
+# Homebrew analytics opt-out: https://docs.brew.sh/Analytics.
 export HOMEBREW_NO_ANALYTICS=1
 
 # Source environment variables with secrets
