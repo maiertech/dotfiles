@@ -20,7 +20,6 @@ cask "slack"
 cask "switchresx"
 cask "tresorit"
 cask "visual-studio-code"
-cask "zoom"
 
 mas "DaisyDisk", id: 411643860
 mas "Numbers", id: 409203825
