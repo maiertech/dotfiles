@@ -9,6 +9,7 @@ brew "tesseract-lang"
 
 cask "cleanshot"
 cask "displaylink"
+cask "docker"
 cask "firefox"
 cask "focusrite-control"
 cask "google-chrome"
