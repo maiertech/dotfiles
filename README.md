@@ -8,7 +8,7 @@ This repository serves two use cases:
    this dotfiles repository.
 
 If you want to create your own dotfiles repo, start with
-[Mike McQuaid's dotfiles](https://github.com/MikeMcQuaid/dotfiles).
+[Mike McQuaid’s dotfiles](https://github.com/MikeMcQuaid/dotfiles).
 
 ## First use case: personalizing GitHub Codespaces containers
 
@@ -24,12 +24,10 @@ possible.
 
 Bootstrapping a MacBook relies on the following cloud services:
 
-- [LastPass](https://www.lastpass.com/) to synchronize passwords across devices.
 - [Google Chrome Sync](https://support.google.com/chrome/answer/185277?) to
   synchronize extensions and settings.
 - [VS Code Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync)
   to synchronize extensions and settings for VS Code.
-- [Tresorit](https://tresorit.com/) to synchronize personal files.
 
 ### Setup assistant
 
@@ -55,7 +53,7 @@ For the GitHub authorizaton you need your GitHub password. If you keep it in a
 password manager like [LastPass](https://www.lastpass.com/), your password might
 be difficult or impossible to type in manually. Use the web version of your
 password manager to copy the password or use
-[Apple's universal clipboard](https://support.apple.com/en-us/HT209460) to copy
+[Apple’s universal clipboard](https://support.apple.com/en-us/HT209460) to copy
 your GitHub password from a password manager on another Apple device and paste
 into your new machine.
 
@@ -102,9 +100,9 @@ settings that cannot be scripted and need to be configured manually:
 
 #### Language & Region
 
-| Setting                                       | Value  | Comment                                                             |
-| :-------------------------------------------- | :----- | :------------------------------------------------------------------ |
-| General → Advanced... → First day of the week | Monday | Scripted configuration of this setting is broken in macOS Catalina. |
+| Setting                                     | Value  | Comment                                                             |
+| :------------------------------------------ | :----- | :------------------------------------------------------------------ |
+| General → Advanced… → First day of the week | Monday | Scripted configuration of this setting is broken in macOS Catalina. |
 
 #### Security & Privacy
 
@@ -151,10 +149,6 @@ dependencies from the taps configured in `.Brewfile`.
 
 1. [homebrew-core](https://github.com/Homebrew/homebrew-core),
 1. [homebrew-cask](https://github.com/Homebrew/homebrew-cask),
-1. [homebrew-cask-versions](https://github.com/Homebrew/homebrew-cask-versions)
-   (for visual-studio-code-insiders),
-1. [homebrew-cask-drivers](https://github.com/Homebrew/homebrew-cask-drivers)
-   (for focusrite-control), and
 1. [macOS App Store](http://www.apple.com/mac/app-store) (via
    [mas-cli](https://github.com/mas-cli/mas)).
 
@@ -174,7 +168,7 @@ figure out the domain and key arguments for each setting. Unfortunately, these
 are not documented well. Here are some pointers:
 
 - A good starting point is
-  [Mathias Bynen's `.macos` configuration file](https://github.com/mathiasbynens/dotfiles/blob/master/.macos).
+  [Mathias Bynen’s `.macos` configuration file](https://github.com/mathiasbynens/dotfiles/blob/master/.macos).
 - For any security and privacy related confiugrations this
   [macOS Security and Privacy Guide](https://github.com/drduh/macOS-Security-and-Privacy-Guide)
   is a great read.
