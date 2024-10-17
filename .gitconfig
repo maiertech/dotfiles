@@ -9,8 +9,8 @@
 	signingkey = ~/.ssh/id_ed25519.pub
 
 # Override user.email for work projects (last user.email wins).
-[includeIf "gitdir:~/projects/impierce/"]
-  path = ~/projects/impierce/.gitconfig
+[includeIf "gitdir:~/Projects/impierce/"]
+  path = ~/Projects/impierce/.gitconfig
 
 [gpg]
 	format = ssh
